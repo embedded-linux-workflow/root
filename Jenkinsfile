@@ -16,7 +16,7 @@ printenv
 cd /home/rpi-user/linux
 make bcm2711_defconfig
 pwd
-ls pwd/arch/arm/boot/
+ls arch/arm/boot/
 '''
         archiveArtifacts './arch/arm/boot/*'
       }
