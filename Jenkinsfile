@@ -18,7 +18,7 @@ make bcm2711_defconfig
 pwd
 ls arch/arm/boot/
 '''
-        archiveArtifacts 'arch/arm/boot/Makkefile'
+        archiveArtifacts 'linux/arch/arm/boot/install.sh'
       }
     }
 
