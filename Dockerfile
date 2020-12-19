@@ -31,7 +31,7 @@ RUN apt-get update && apt-get install -y \
 RUN useradd -ms /bin/bash rpi-user
 
 # Get Linux
- RUN mkdir /home/rpi-user && cd /home/rpi-user \
+ RUN cd /home/rpi-user \
     && git clone --progress --verbose --depth=1 --branch rpi-5.4.y https://github.com/raspberrypi/linux.git
 
  
