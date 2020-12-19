@@ -17,7 +17,7 @@ cd /home/rpi-user/linux
 make bcm2711_defconfig
 
 '''
-        archiveArtifacts '/home/rpi-user/linux/arch/arm/boot/\'*\''
+        archiveArtifacts './arch/arm/boot/'
       }
     }
 
