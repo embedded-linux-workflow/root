@@ -15,9 +15,9 @@ export CROSS_COMPILE=arm-linux-gnueabihf-
 printenv
 cd /home/rpi-user/linux
 make bcm2711_defconfig
-
+pwd
 '''
-        archiveArtifacts './arch/arm/boot/'
+        archiveArtifacts './arch/arm/boot/*'
       }
     }
 
