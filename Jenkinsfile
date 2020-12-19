@@ -15,9 +15,11 @@ export CROSS_COMPILE=arm-linux-gnueabihf-
 printenv
 cd /home/rpi-user/linux
 make bcm2711_defconfig
-pwd
-ls $WORKSPACE
-cp arch/arm/boot/install.sh $WORKSPACE
+make
+cp arch/arm/boot/zImage $WORKSPACE
+cp arch/arm/boot/dts/*.dtb $WORKSPACE
+cp arch/arm/boot/dts/overlays/*.dtb* $WORKSPACE
+cp arch/arm/boot/dts/overlays/README  $WORKSPACE
 '''
         archiveArtifacts 'install.sh'
       }
