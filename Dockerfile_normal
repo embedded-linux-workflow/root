@@ -1,0 +1,52 @@
+FROM ubuntu:20.04
+
+# To avoid this data-enter request, especially when such build is running on CI like Jenkins 
+ENV TZ=Europe/Stockholm
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+
+# Minimal requirements to compile the Kernel
+RUN apt-get update && apt-get install -y \
+    gcc \
+    clang \
+    make \
+    binutils \
+    flex \
+    bison \
+    util-linux \
+    kmod \
+    e2fsprogs \
+    jfsutils \
+    reiserfsprogs \
+    squashfs-tools\
+    btrfs-progs \
+    pcmciautils \
+    quota\
+    ppp \
+    nfs-common \
+    procps \
+    oprofile \
+    udev\
+    #grub-install \
+    #mcelog \
+    iptables \
+    openssl \
+    libssl-dev \
+    bc \
+    libelf-dev \
+ && rm -rf /var/lib/apt/lists/*
+
+
+# Add default user
+RUN useradd -ms /bin/bash proj-user && \
+    chown -R proj-user:proj-user /home/proj-user
+
+ # Get Linux
+ #RUN cd /home/proj-user \
+ #   && git clone --progress --verbose https://github.com/torvalds/linux.git \
+ #   && git checkout tags/v5.4 -b v5.4
+
+
+USER proj-user
+WORKDIR /home/proj-user
+ENV HOME /home/proj-user
