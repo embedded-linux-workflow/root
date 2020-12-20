@@ -21,7 +21,7 @@ cp arch/arm/boot/dts/*.dtb $WORKSPACE
 cp arch/arm/boot/dts/overlays/*.dtb* $WORKSPACE
 cp arch/arm/boot/dts/overlays/README  $WORKSPACE
 '''
-        archiveArtifacts 'install.sh'
+        archiveArtifacts 'zImage ,*.dtb *.dtb*, README'
       }
     }
 
